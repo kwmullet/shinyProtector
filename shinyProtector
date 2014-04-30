@@ -1,0 +1,13 @@
+#!/bin/bash
+while : 
+do 
+    sleep 5
+    # sure would like to replace this sleep with a native Cocoa or Quartz
+    # applescript call to look for the timebar dialog box and wait for it
+    # to be closed.
+    timebar --duration 10 --message "Focus check at $(date +"%T")"
+    until egrep TimebarAudit /var/log/system.log|tail -1|grep -q complete
+    do  
+        sleep 1
+    done
+done
