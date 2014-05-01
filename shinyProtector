@@ -1,4 +1,6 @@
 #!/bin/bash
+#stop any partially completed timer iterations.
+timebar --stop
 while : 
 do 
     sleep 5
